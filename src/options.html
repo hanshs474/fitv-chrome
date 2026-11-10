@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Free Image to Video settings</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  body { font-size: 14px; }
+  main { max-width: 640px; margin: 0 auto; padding: 36px 24px 56px; }
+  header { margin-bottom: 22px; }
+  .brand img { width: 40px; height: 40px; border-radius: 10px; }
+  .brand b { font-size: 20px; }
+  section { margin-bottom: 16px; }
+  h2 { font-size: 15px; margin: 0 0 4px; }
+  .lead { margin: 0 0 12px; font-size: 13px; }
+  .keyrow { display: flex; gap: 8px; }
+  .keyrow input { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .actions { display: flex; gap: 8px; margin-top: 10px; flex-wrap: wrap; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .grid label { font-size: 12px; color: var(--muted); display: grid; gap: 4px; }
+  .note { font-size: 12.5px; }
+  .note p { margin: 0 0 6px; }
+</style>
+</head>
+<body>
+<main>
+  <header class="brand">
+    <img src="icons/icon128.png" alt="">
+    <div><b>Free Image to Video</b><small>Any photo to a video clip with sound, no watermark.</small></div>
+  </header>
+  <section class="card">
+    <h2>API key</h2>
+    <p class="lead muted">Create a key on your Free Image to Video account and paste it here. It is stored only in this browser.</p>
+    <div class="keyrow">
+      <input type="password" id="key" autocomplete="off" spellcheck="false" placeholder="sk-…">
+      <button class="btn ghost" id="toggle">Show</button>
+    </div>
+    <div class="actions">
+      <button class="btn" id="save">Save and check</button>
+      <a class="btn ghost" id="getkey" target="_blank" rel="noopener">Get a key on freeimagetovideo.ai</a>
+    </div>
+    <div class="msg" id="keymsg"></div>
+  </section>
+  <section class="card">
+    <h2>Clip settings</h2>
+    <p class="lead muted">Used for every clip you start from this browser. Leave on "Site default" if unsure.</p>
+    <div class="grid">
+      <label>Length<select id="duration"><option value="">Site default</option><option>4</option><option>5</option><option>6</option><option>8</option><option>10</option><option>15</option></select></label>
+      <label>Resolution<select id="resolution"><option value="">Site default</option><option>480p</option><option>768p</option></select></label>
+      <label>Shape<select id="aspect_ratio"><option value="">Site default</option><option>16:9</option><option>9:16</option><option>1:1</option></select></label>
+    </div>
+    <div class="msg" id="optmsg"></div>
+  </section>
+  <section class="note muted">
+    <p>API runs need a paid plan on your account: each run draws on the plan's daily full-speed allowance, then waits in the relaxed queue. To make clips without a key, use the generator on the website.</p>
+    <p>The extension sends only the image you chose, the motion you described and your API key, and only to freeimagetovideo.ai.</p>
+    <p><a href="#" id="site">freeimagetovideo.ai</a> · <a href="#" id="pricing">Plans</a> · <a href="#" id="privacy">Privacy policy</a></p>
+  </section>
+</main>
+<script type="module" src="options.js"></script>
+</body>
+</html>
